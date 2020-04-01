@@ -1,0 +1,19 @@
+from matplotlib.pyplpt import *
+
+TRUCK = {"1": 125, "2": 125, "3": 125, "4": 125}
+DEPOT = (0,0)
+CUSTOMERS_WISH = [30,20,70,100,30,75,125,50]
+CUSTOMERS_LOCATION = [(1,1),(2,4),(-1,-3),(-6,3),(-1,3),(0,5),(4,-1),(2,2)]
+
+def tri(l_wish, l_loc):
+    for i in range(len(l_wish)):
+        for j in range(i,len(l_wish)):
+            if l_wish[j] < l_wish[i]:
+                (l_wish[i], l_wish[j]) = (l_wish[j],l_wish[i])
+                (l_loc[i], l_loc[j]) = (l_loc[j],l_loc[i])
+    return (l_wish,l_loc)
+
+(CUSTOMERS_WISH, CUSTOMERS_LOCATION) = tri(CUSTOMERS_WISH,CUSTOMERS_LOCATION)
+
+def dispatching(l_wish, l_loc, truck, depot):
+    
