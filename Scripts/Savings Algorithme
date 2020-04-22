@@ -1,0 +1,52 @@
+from matplotlib.pyplot import axis, grid, show, plot, scatter
+from numpy import sqrt
+
+DEPOT = [0,0]
+CLIENTS = [[1,1],[4,-2],[-1,-7],[2,6],[-5,2],[-3,4]]
+
+def distance(i,j):
+    return sqrt((j[1]-i[1])**2+(j[0]-i[0])**2)
+
+def step1():
+
+    # Savings construit la liste des "savings" pour chaque couple de points
+
+    def savings(DEPOT = DEPOT, CLIENTS = CLIENTS):
+        list_savings = []
+        client_savings = []
+        temp = []
+        temp2 = []
+        for i in range(0, len(CLIENTS)-1):
+            for j in range(i+1,len(CLIENTS)):
+                temp.append((round(distance(CLIENTS[i],DEPOT)+distance(CLIENTS[j],DEPOT)-distance(CLIENTS[i],CLIENTS[j]),2)))
+                temp2.append((i,j))
+            list_savings.append(temp)
+            client_savings.append(temp2)
+            temp = [] ; temp2 = []
+        return (list_savings,client_savings)
+
+    def create_routes(DEPOT = DEPOT, CLIENTS = CLIENTS):
+        list_route = []
+        for i in range(len(CLIENTS)):
+            list_route.append((DEPOT, CLIENTS[i], DEPOT))
+        return list_route
+
+    def joindre_tableaux(list_savings = savings()[0], client_savings = savings()[1]):
+        new_l_s = []
+        new_c_s = []
+        for i in range(len(list_savings)):
+            for j in range(len(list_savings[i])):
+                new_l_s.append(list_savings[i][j])
+                new_c_s.append(client_savings[i][j])
+        return (new_l_s, new_c_s)
+
+    def order_list(x = joindre_tableaux()):
+        list_savings = x[0]
+        client_savings = x[1]
+        for i in range(len(list_savings)):
+            for j in range(i,len(list_savings)):
+                if list_savings[j] > list_savings[i]:
+                    (list_savings[i], list_savings[j]) = (list_savings[j], list_savings[i])
+                    (client_savings[i], client_savings[j]) = (client_savings[j], client_savings[i])
+        return (list_savings, client_savings)
+
