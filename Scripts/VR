@@ -15,5 +15,3 @@ def tri(l_wish, l_loc):
 
 (CUSTOMERS_WISH, CUSTOMERS_LOCATION) = tri(CUSTOMERS_WISH,CUSTOMERS_LOCATION)
 
-def dispatching(l_wish, l_loc, truck, depot):
-    
