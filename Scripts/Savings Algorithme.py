@@ -1,17 +1,17 @@
 from matplotlib.pyplot import axis, grid, show, plot, scatter
 from numpy import sqrt
-from random import randint 
+from random import randint
 
 DEPOT = [0,0]
-CLIENTS = []
+CLIENTS = [[-80, -25], [37, 62], [-100, -41], [33, -53], [-47, -46], [-89, 58], [85, 27], [-71, 93], [62, -85], [-45, -27]]
 
-def creer_client_alea(n=5):
+def creer_client_alea(n=10):
     CLIENTS = []
-    for i in range(n):
-        CLIENTS.append([randint(-10,10),randint(-10,10)])
+    for _ in range(n):
+        CLIENTS.append([randint(-100,100),randint(-100,100)])
     return CLIENTS
 
-CLIENTS = creer_client_alea()
+# CLIENTS = creer_client_alea()
 
 def distance(i,j):
     return sqrt((j[1]-i[1])**2+(j[0]-i[0])**2)
@@ -56,7 +56,7 @@ def order_list(x = joindre_tableaux()):
                 (list_savings[i], list_savings[j]) = (list_savings[j], list_savings[i])
                 (client_savings[i], client_savings[j]) = (client_savings[j], client_savings[i])
     return (list_savings, client_savings)
-    
+
 def merge_routes(ROUTE = create_routes(), list_savings = order_list()[0], client_savings = order_list()[1]):
     temp = 0
     for i in range(len(list_savings)):
@@ -89,3 +89,17 @@ def dessin(DEPOT = DEPOT, CLIENTS = CLIENTS, ROUTES = merge_routes()):
         X.append(0) ; Y.append(0)
         plot(X,Y)
     show()
+
+def distance_comparaison(DEPOT = DEPOT, CLIENTS = CLIENTS, ROUTE_AVANT = create_routes() ,ROUTE_APRES = merge_routes()):
+    d1 = 0 ; d2 = 0
+    for i in range(len(ROUTE_AVANT)):
+        d1 += 2 * distance(DEPOT,CLIENTS[ROUTE_AVANT[i][1]-1])
+    for j in ROUTE_APRES:
+        for k in range(len(j)-1):
+            if j[k] == 0:
+                d2 += distance(DEPOT,CLIENTS[j[k+1]-1])
+            elif j[k+1] == 0:
+                d2 += distance(CLIENTS[j[k]-1],DEPOT)
+            else:
+                d2 += distance(CLIENTS[j[k]-1],CLIENTS[j[k+1]-1])
+    return (d1,d2)
