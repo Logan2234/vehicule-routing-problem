@@ -11,7 +11,7 @@ def creer_client_alea(n=10):
         CLIENTS.append([randint(-100,100),randint(-100,100)])
     return CLIENTS
 
-# CLIENTS = creer_client_alea()
+CLIENTS = creer_client_alea()
 
 def distance(i,j):
     return sqrt((j[1]-i[1])**2+(j[0]-i[0])**2)
