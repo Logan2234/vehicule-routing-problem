@@ -3,7 +3,7 @@ from numpy import sqrt
 from random import randint
 
 DEPOT = [0,0]
-CLIENTS = [[-80, -25], [37, 62], [-100, -41], [33, -53], [-47, -46], [-89, 58], [85, 27], [-71, 93], [62, -85], [-45, -27]]
+CLIENTS = [[-80, -25], [37, 62], [-100, -41], [0, -53], [-47, -46], [-89, 58], [85, 27], [-71, 93], [62, -85], [-45, -27]]
 
 def creer_client_alea(n=10):
     CLIENTS = []
@@ -11,7 +11,7 @@ def creer_client_alea(n=10):
         CLIENTS.append([randint(-100,100),randint(-100,100)])
     return CLIENTS
 
-CLIENTS = creer_client_alea()
+# CLIENTS = creer_client_alea()
 
 def distance(i,j):
     return sqrt((j[1]-i[1])**2+(j[0]-i[0])**2)
@@ -103,3 +103,5 @@ def distance_comparaison(DEPOT = DEPOT, CLIENTS = CLIENTS, ROUTE_AVANT = create_
             else:
                 d2 += distance(CLIENTS[j[k]-1],CLIENTS[j[k+1]-1])
     return (d1,d2)
+print(distance_comparaison())
+dessin()
