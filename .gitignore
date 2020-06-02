@@ -288,6 +288,7 @@ TSWLatexianTemp*
 pyvenv.cfg
 .venv
 pip-selfcheck.json
+*.lock
 
 # End of https://www.toptal.com/developers/gitignore/api/virtualenv
 
