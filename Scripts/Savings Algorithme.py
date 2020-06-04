@@ -5,18 +5,29 @@ from copy import deepcopy
 
 
 DEPOT = [0, 0]
-CLIENTS = [[-80, -25], [37, 62], [-100, -41], [0, -53], [-47, -46],
-           [-89, 58], [85, 27], [-71, 93], [62, -85], [-45, -27]]
+
+# CLIENTS - Belle configuration
+
+# CLIENTS = [[-80, -25], [37, 62], [-100, -41], [0, -53], [-47, -46], [-89, 58], [85, 27], [-71, 93], [62, -85], [-45, -27]]
+
+# CLIENTS - CAS A ETUDIER
+
+# CLIENTS = [[20, 0], [-16, -12], [16, -12]]
+
+# CLIENTS demi-plan
+
+CLIENTS = [[73, -50], [64, 99], [77, 90], [88, 32], [69, -62], [38, -57], [31, 0],
+           [76, 70], [52, -35], [75, -70], [39, 90], [37, -86], [40, -1], [75, 1], [7, -50]]
 
 
-def creer_client_alea(n=10):
+def creer_client_alea(n=15):
     CLIENTS = []
     for _ in range(n):
         CLIENTS.append([randint(-100, 100), randint(-100, 100)])
     return CLIENTS
 
 
-CLIENTS = creer_client_alea(10)
+CLIENTS = creer_client_alea()
 
 
 def copie(liste):
@@ -158,8 +169,14 @@ deux_opt()
 def distance_comparaison(DEPOT=DEPOT, CLIENTS=CLIENTS, ROUTE_AVANT=ROUTES, ROUTE_APRES=FINAL):
     d1 = 0
     d2 = 0
-    for i in range(len(ROUTE_AVANT)):
-        d1 += 2 * distance(DEPOT, CLIENTS[ROUTE_AVANT[i][1]-1])
+    for j in ROUTE_AVANT:
+        for k in range(len(j)-1):
+            if j[k] == 0:
+                d1 += distance(DEPOT, CLIENTS[j[k+1]-1])
+            elif j[k+1] == 0:
+                d1 += distance(CLIENTS[j[k]-1], DEPOT)
+            else:
+                d1 += distance(CLIENTS[j[k]-1], CLIENTS[j[k+1]-1])
     for j in ROUTE_APRES:
         for k in range(len(j)-1):
             if j[k] == 0:
@@ -171,5 +188,7 @@ def distance_comparaison(DEPOT=DEPOT, CLIENTS=CLIENTS, ROUTE_AVANT=ROUTES, ROUTE
     return (d1, d2)
 
 
+print(distance_comparaison())
+print(CLIENTS)
 dessin(ROUTES)
 dessin()
