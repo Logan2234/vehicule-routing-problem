@@ -1,8 +1,8 @@
-\documentclass[14pt]{beamer}
+\documentclass[handout]{beamer}
 %%% Pour le français %%%
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[french]{babel}
+\usepackage[frenchb]{babel}
 %%%%%%%%%%%%%%%%%%%%%%%%
 % \usepackage{fancyhdr} % En-tête et pied de page personnalisés
 % \usepackage{listings} % Pour du beau code coloré
@@ -30,27 +30,90 @@
 % \usepackage{graphicx} % Pour travailler sur des images
 % \usepackage{color} % Pour manipuler les couleurs et colorer le texte
 
-\title{TIPE \\ Optimisation des transports}
-\author{WILLEM Logan — ROCHER Kilian}
-\date{}
+\title[TIPE — Optimisation des transports]{TIPE \\ Optimisation des transports}
+\author{ROCHER Kilian — WILLEM Logan}
+\date{2020 - 2021}
 
-\usetheme{Warsaw}
+\mode<presentation>
+
+\useoutertheme[footline=authortitle]{miniframes}
+\useinnertheme{circles}
+\usecolortheme{whale}
+\usecolortheme{orchid}
+
+\definecolor{beamer@blendedblue}{rgb}{0.137,0.466,0.741}
+\definecolor{titleColor}{RGB}{102,153,255}
+\definecolor{textColor}{RGB}{60,60,60}
+
+\setbeamercolor{titlelike}{bg=titleColor}
+\setbeamercolor{titlelike}{parent=structure}
+\setbeamercolor{frametitle}{fg=black}
+\setbeamercolor{title}{fg=black}
+\setbeamercolor{item}{fg=black}
+\setbeamercolor{normal text}{fg=textColor}
+\setbeamertemplate{background canvas}[vertical shading][top=cyan!7!white,bottom=cyan!2!white]
+\setbeamertemplate{blocks}[rounded][shadow=true]
 
 \begin{document}
-
-    \maketitle
-
-	\begin{frame}
-	Voici votre première page de présentation en LaTeX !
+	\begin{frame}[plain]
+		\maketitle
 	\end{frame}
 
+	\begin{frame}[plain]
+		\tableofcontents
+	\end{frame}
+
+	\section{Situation du problème}
+	
+	\subsection{Qu'est ce que l'optimisation des transports}
+	
 	\begin{frame}
-		\frametitle{Un exemple de titre}
-		\framesubtitle{avec un exemple de sous-titre}
-		Enfin, le texte ! :)
+		Definition et enjeux de l'optimisation des transports
+	\end{frame}
+	
+	\subsection{Quelques exemples}
+	
+	\begin{frame}
+		Quelques exemples d'optimisation de transport avec images explicatives
+	\end{frame}
+	
+	\section{La tournée des véhicules}
+	
+	\subsection{Contexte}
+	
+	\begin{frame}
+		Explication approfondie de la tournée des véhicules
+	\end{frame}
+
+	\subsection{Variantes}
+	
+	\begin{frame}
+		Quelques variantes intéréssantes de la tournée des véhicules
+	\end{frame}
+	
+	\section{Résolution}
+
+	\subsection{L'algorithme de Clark \& Wright}
+
+	\begin{frame}
+		Explication de l'algorithme de Clark and Wright avec démonstration
+		
+		\begin{proof}
+			démo à insérée
+		\end{proof}
 	
 	\end{frame}
 
+	\subsection{Insufisance de l'algorithme}
 
+	\begin{frame}
+		Résultats de l'algorithme et présentation de ses faiblesses / insufisances
+	\end{frame}
+
+	\subsection{Amélioration : le 2-opt}
+
+	\begin{frame}
+		Principe du 2-opt et résultats combinés
+	\end{frame}
 
 \end{document}
