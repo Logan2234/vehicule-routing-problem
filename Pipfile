@@ -12,6 +12,7 @@ autopep8 = "*"
 pylint = "*"
 scipy = "*"
 jupyter = "*"
+mccabe = "*"
 
 [requires]
 python_version = "3.7"
