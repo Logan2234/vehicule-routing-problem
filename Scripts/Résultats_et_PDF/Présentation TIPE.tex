@@ -30,6 +30,7 @@
 % \usepackage{graphicx} % Pour travailler sur des images
 % \usepackage{color} % Pour manipuler les couleurs et colorer le texte
 \usepackage{enumitem}
+\usepackage{tabulary}
 
 \title[TIPE — Optimisation des transports]{TIPE \\ Optimisation des transports}
 \author{ROCHER Kilian — WILLEM Logan}
@@ -110,7 +111,7 @@
 	\subsection{L'algorithme de Clarke \& Wright}
 
 	\begin{frame}
-		\begin{beamerboxesrounded}[upper=data_up,lower=data_low,shadow=true]{Données} \pause
+		\begin{beamerboxesrounded}[upper=data_up,lower=data_low,shadow=true]{Données}
 			\begin{itemize}[label=-]
 				\item $D$ : Dépot de coordonnées $(0,0)$\pause
 				\item Une famille de points \((i_1,...,i_k) \in {(\lbrack-100,100\rbrack^2)}^k\) pour un certain $k \in \lbrack2,+\infty\lbrack$ représentant les clients\pause
@@ -164,9 +165,40 @@
 	\subsection{Le 2-opt}
 
 	\begin{frame}
-		
+		\begin{figure}
+			\includegraphics[scale=1.3]{Resultats/principe-2-opt.png}
+			\caption{Principe du 2-opt: Suppression des liaisons sécantes}	
+		\end{figure}
 	\end{frame}
-
+	
+	\begin{frame}
+		\begin{center}
+		\textbf{10 clients}
+		\end{center}
+		\ \newline
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.25]{Resultats/Cas_avant_2-opt.png}
+			&
+			\includegraphics[scale=0.25]{Resultats/Cas_apres_2-opt.png}
+			\\                                                     
+			Avant&Après
+		\end{tabular}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{center}
+			\textbf{20 clients}
+		\end{center}
+		\ \newline
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.25]{Resultats/Cas_avant_2-opt3_distance_totale_1442,4672107499957.png}
+			&
+			\includegraphics[scale=0.25]{Resultats/Cas_apres_2-opt3_distance_totale_1402,9109633508515.png}
+			\\                                                     
+			Avant&Après
+		\end{tabular}
+	\end{frame}
+	
 	\subsection{Comparaison des algorithmes}
 
 	\begin{frame} 
