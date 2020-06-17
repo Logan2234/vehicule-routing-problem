@@ -12,12 +12,12 @@ DEPOT = [0, 0]
 
 # CLIENTS - CAS A ETUDIER
 
-# CLIENTS = [[20, 0], [-16, -12], [16, -12]]
+CLIENTS = [[20, 0], [-16, -12], [16, -12]]
 
 # CLIENTS demi-plan
 
-CLIENTS = [[73, -50], [64, 99], [77, 90], [88, 32], [69, -62], [38, -57], [31, 0],
-           [76, 70], [52, -35], [75, -70], [39, 90], [37, -86], [40, -1], [75, 1], [7, -50]]
+# CLIENTS = [[73, -50], [64, 99], [77, 90], [88, 32], [69, -62], [38, -57], [31, 0],
+# [76, 70], [52, -35], [75, -70], [39, 90], [37, -86], [40, -1], [75, 1], [7, -50]]
 
 
 def creer_client_alea(n=15):
@@ -27,7 +27,7 @@ def creer_client_alea(n=15):
     return CLIENTS
 
 
-CLIENTS = creer_client_alea()
+# CLIENTS = creer_client_alea()
 
 
 def copie(liste):

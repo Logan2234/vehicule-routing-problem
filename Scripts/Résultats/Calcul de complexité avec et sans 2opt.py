@@ -16,6 +16,7 @@ def main(n):
         print(MOY)
         scatter([x for x in range(len(MOY))], MOY)
         x = linspace(0, n-1, 100)
+        plot(x, [y**4/18000000 for y in x])
 
     def creer_client_alea(n):
         CLIENTS = []
