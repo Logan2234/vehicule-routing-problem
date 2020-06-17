@@ -8,7 +8,8 @@ DEPOT = [0, 0]
 
 # CLIENTS - Belle configuration
 
-CLIENTS = [[-80, -25], [37, 62], [-100, -41], [0, -53], [-47, -46], [-89, 58], [85, 27], [-71, 93], [62, -85], [-45, -27]]
+CLIENTS = [[-80, -25], [37, 62], [-100, -41], [0, -53], [-47, -46],
+           [-89, 58], [85, 27], [-71, 93], [62, -85], [-45, -27]]
 
 # CLIENTS - CAS A ETUDIER
 
@@ -39,9 +40,7 @@ def distance(i, j):
     return sqrt((j[1]-i[1])**2+(j[0]-i[0])**2)
 
 
-# Savings construit la liste des "savings" pour chaque couple de points
-
-
+# Construction de la liste des "savings" pour chaque couple de points
 def savings(DEPOT=DEPOT, CLIENTS=CLIENTS):
     list_savings = []
     client_savings = []
@@ -59,6 +58,7 @@ def savings(DEPOT=DEPOT, CLIENTS=CLIENTS):
     return (list_savings, client_savings)
 
 
+# Créer les routes D-i-D
 def create_routes(DEPOT=DEPOT, CLIENTS=CLIENTS):
     list_route = []
     for i in range(len(CLIENTS)):
@@ -78,6 +78,7 @@ def joindre_tableaux(res=savings()):
     return (new_l_s, new_c_s)
 
 
+# Trier les savings afin d'en retirer les bénéfices les plus élevés
 def order_list(x=joindre_tableaux()):
     list_savings = x[0]
     client_savings = x[1]
@@ -95,6 +96,7 @@ ROUTES = create_routes()
 SAVINGS = order_list()
 
 
+# Forme les routes en prenant en compte les bénéfices
 def merge_routes(ROUTE=ROUTES, list_savings=SAVINGS[0], client_savings=SAVINGS[1]):
     temp = 0
     for i in range(len(list_savings)):
@@ -114,12 +116,11 @@ def merge_routes(ROUTE=ROUTES, list_savings=SAVINGS[0], client_savings=SAVINGS[1
     return ROUTE
 
 
-# 2_opt pour regler les problemes de croisements
-
 ROUTES = merge_routes()
 FINAL = copie(ROUTES)
 
 
+# 2_opt pour regler les problemes de croisements
 def deux_opt(routes=FINAL):
     continuer = True
     while continuer:
