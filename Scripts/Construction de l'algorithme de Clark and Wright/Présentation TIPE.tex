@@ -121,22 +121,19 @@
 	\end{frame}
 	 
 	\begin{frame}	
-		\begin{beamerboxesrounded}[upper=prop_up,lower=prop_low,shadow=true]{Proposition}
-			\textit{Il existe toujours un bénéfice à relier deux points initialement isolés}
-		\end{beamerboxesrounded}
-		\begin{proof}
+		\begin{definition}[Fonction \textit{gain}]
 			On introduit la fonction $s$ qui calcule le gain après raccord de deux routes. Celle-ci calcule, pour deux points $i$ et $j$, la différence entre le chemin $D-i-D$ + $D-j-D$ qui vaut donc $2d(D,i) + 2d(j,D)$ au chemin $D-i-j-D$ donc la distance vaut $d(D,i) + d(i,j) + d(j,D)$
 		\begin{align*}
 			s(i,j) &= 2d(D,i) + 2d(j,D) - \lbrack d(D,i) + d(i,j) + d(j,D)\rbrack \\
 			s(i,j) &= d(D,i) + d(j,D) - d(i,j)
 		\end{align*}		
-		\end{proof}
+		\end{definition}
 	\end{frame}
 
 	\subsection{Insufisance de l'algorithme}
 
 	\begin{frame}
-		Résultats de l'algorithme et présentation de ses faiblesses / insufisances
+		
 	\end{frame}
 
 	\subsection{Amélioration : le 2-opt}
