@@ -97,11 +97,11 @@
 	\begin{frame}
 		\underline{Différentes variantes du problème de tournée des véhicules}
 		\begin{itemize}[label=—]
-			\item Classique (VRP) \pause
-			\item Contrainte de capacité (CVRP) \pause
-			\item Dépôts multiples (MDVRP) \pause
-			\item Retours des colis (VRPPD et VRPB) \pause
-			\item \dots \pause
+			\item Classique (VRP)\pause
+			\item Contrainte de capacité (CVRP)\pause
+			\item Dépôts multiples (MDVRP)\pause
+			\item Retours des colis (VRPPD et VRPB)\pause
+			\item \dots pause
 		\end{itemize}
 		\ \newline On s'est intéressé à la variante classique afin de s'approprier au mieux le problème.
 	\end{frame}
@@ -113,9 +113,12 @@
 	\begin{frame}
 		\begin{beamerboxesrounded}[upper=data_up,lower=data_low,shadow=true]{Données}
 			\begin{itemize}[label=-]
-				\item $D$ : Dépot de coordonnées $(0,0)$\pause
-				\item Une famille de points \((i_1,...,i_k) \in {(\lbrack-100,100\rbrack^2)}^k\) pour un certain $k \in \lbrack2,+\infty\lbrack$ représentant les clients\pause
-				\item Une fonction $d$ qui calcule la distance entre deux points. \pause
+				\item Un point $D$ de coordonnées $(0,0)$ : le dépot
+				\pause
+				\item Une famille de points \((i_1,...,i_k) \in {(\lbrack-100,100\rbrack^2)}^k\) pour un certain $k \in \lbrack2,+\infty\lbrack$ représentant les clients
+				\pause
+				\item Une fonction $d$ qui calcule la distance entre deux points.
+				\pause
 			\end{itemize}
 		\end{beamerboxesrounded}\ \newline
 		\underline{Remarque} : Dans cette méthode de résolution, le nombre de véhicules n'est pas fixé. C'est l'algorithme qui décide du nombre optimal de véhicules à utiliser. 
@@ -123,12 +126,23 @@
 	 
 	\begin{frame}	
 		\begin{definition}[Fonction \textit{gain}]
-			On introduit la fonction $s$ qui calcule le gain après raccord de deux routes. Celle-ci calcule, pour deux points $i$ et $j$, la différence entre le chemin $D-i-D$ + $D-j-D$ qui vaut donc $2d(D,i) + 2d(j,D)$ au chemin $D-i-j-D$ donc la distance vaut $d(D,i) + d(i,j) + d(j,D)$
+			Fonction $s$ : calcule le gain après raccord de deux routes. \\Pour deux points $i$ et $j$, $s$ calcule la différence de distance entre le chemin \\$D-i-D$ + $D-j-D$ qui vaut $2d(D,i) + 2d(j,D)$ au chemin\\$D-i-j-D$ de distance $d(D,i) + d(i,j) + d(j,D)$
 		\begin{align*}
 			s(i,j) &= 2d(D,i) + 2d(j,D) - \lbrack d(D,i) + d(i,j) + d(j,D)\rbrack \\
 			s(i,j) &= d(D,i) + d(j,D) - d(i,j)
-		\end{align*}		
+		\end{align*}
 		\end{definition}
+		\pause
+		\begin{tabular}{cccc}
+			\;\;\;\;\;\;\;
+			&
+			\includegraphics[scale=1.5]{did+djd.png}
+			&
+			\;\;\;\;\;\;\;	
+			\pause		
+			&
+			\includegraphics[scale=1.5]{dijd.png}			
+		\end{tabular}
 	\end{frame}
 
    \begin{frame}
@@ -139,13 +153,13 @@
 	\end{frame}
 
 	\begin{frame}
-		\begin{figure}[t]
+		\begin{figure}
 			\includegraphics[scale=0.35]{Resultats/CasParfait.png}
 			\caption{Résolution parfaite d'un problème}	
 		\end{figure}
 	\end{frame}
 
-	\subsection{Insuffisance de l'algorithme}
+	\subsection{Insuffisance de l'algorithme seul}
 	   
 	\begin{frame}
 		\begin{figure}
@@ -170,6 +184,8 @@
 			\caption{Principe du 2-opt: Suppression des liaisons sécantes}	
 		\end{figure}
 	\end{frame}
+
+	\subsection{Résultats avec 2-opt}
 	
 	\begin{frame}
 		\begin{center}
@@ -194,6 +210,8 @@
 			\includegraphics[scale=0.25]{Resultats/Cas_avant_2-opt3_distance_totale_1442,4672107499957.png}
 			&
 			\includegraphics[scale=0.25]{Resultats/Cas_apres_2-opt3_distance_totale_1402,9109633508515.png}
+			\\
+			Distance: 1442km&Distance: 1403km
 			\\                                                     
 			Avant&Après
 		\end{tabular}
@@ -202,7 +220,7 @@
 	\subsection{Comparaison des algorithmes}
 
 	\begin{frame} 
-		Différents résultats, comparaison et mise en avant du problème soulevé par le 2-opt (cas des trois points)
+		Comparaison et mise en avant du problème soulevé par le 2-opt (cas des trois points)
 	\end{frame}
 
 \end{document}

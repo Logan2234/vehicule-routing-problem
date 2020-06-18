@@ -58,7 +58,7 @@ def savings(DEPOT=DEPOT, CLIENTS=CLIENTS):
     return (list_savings, client_savings)
 
 
-# Créer les routes D-i-D
+# Creer les routes D-i-D
 def create_routes(DEPOT=DEPOT, CLIENTS=CLIENTS):
     list_route = []
     for i in range(len(CLIENTS)):
@@ -78,7 +78,7 @@ def joindre_tableaux(res=savings()):
     return (new_l_s, new_c_s)
 
 
-# Trier les savings afin d'en retirer les bénéfices les plus élevés
+# Trier les savings afin d'en retirer les benefices les plus eleves
 def order_list(x=joindre_tableaux()):
     list_savings = x[0]
     client_savings = x[1]
@@ -96,7 +96,7 @@ ROUTES = create_routes()
 SAVINGS = order_list()
 
 
-# Forme les routes en prenant en compte les bénéfices
+# Forme les routes en prenant en compte les benefices
 def merge_routes(ROUTE=ROUTES, list_savings=SAVINGS[0], client_savings=SAVINGS[1]):
     temp = 0
     for i in range(len(list_savings)):
@@ -189,7 +189,5 @@ def distance_comparaison(DEPOT=DEPOT, CLIENTS=CLIENTS, ROUTE_AVANT=ROUTES, ROUTE
     return (d1, d2)
 
 
-print(distance_comparaison())
-print(CLIENTS)
 dessin(ROUTES)
 dessin()
