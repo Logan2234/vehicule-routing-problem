@@ -101,7 +101,7 @@
 			\item Contrainte de capacité (CVRP)\pause
 			\item Dépôts multiples (MDVRP)\pause
 			\item Retours des colis (VRPPD et VRPB)\pause
-			\item \dots pause
+			\item \dots 
 		\end{itemize}
 		\ \newline On s'est intéressé à la variante classique afin de s'approprier au mieux le problème.
 	\end{frame}
@@ -179,10 +179,15 @@
 	\subsection{Le 2-opt}
 
 	\begin{frame}
-		\begin{figure}
-			\includegraphics[scale=1.3]{Resultats/principe-2-opt.png}
-			\caption{Principe du 2-opt: Suppression des liaisons sécantes}	
-		\end{figure}
+		\begin{tabular}{cc}
+				\includegraphics[scale=1.1]{Resultats/principe-2-opt.png}
+				&
+				\includegraphics[scale=0.2]{Resultats/2opt.png}
+				\\
+				\ \\Principe du 2-opt\\Suppression des liaisons sécantes
+				&
+				Vue générale de l'algorithme
+		\end{tabular}
 	\end{frame}
 
 	\subsection{Résultats avec 2-opt}
@@ -217,10 +222,20 @@
 		\end{tabular}
 	\end{frame}
 	
-	\subsection{Comparaison des algorithmes}
+	\subsection{Complexité des algorithmes}
 
 	\begin{frame} 
-		Comparaison et mise en avant du problème soulevé par le 2-opt (cas des trois points)
+		\begin{tabular}{cc}
+			\textbf{Sans 2-opt}&\textbf{Avec 2-opt}
+			\\
+			\ &\
+			\\
+			\includegraphics[scale=0.3]{Resultats/Complexite_algo_Clarke_and_Wright_x3_140000_sans_2opt.png}
+			&
+			\includegraphics[scale=0.3]{Resultats/Complexite_algo_Clark_and_Wright_x4_6000000.png}
+			\\
+			\small{$f(x) = x^3/14000$}&\small{$f(x) = x^4/6000000$}
+		\end{tabular}
 	\end{frame}
 
 \end{document}
