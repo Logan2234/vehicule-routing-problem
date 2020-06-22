@@ -13,6 +13,7 @@
 % \usepackage{mathrsfs} % 3 fonts pour les 26 lettres
 % \usepackage{amsthm} % Custom des theoremes
 % \usepackage{tikz} % Pour des graphiques
+\usepackage{stmaryrd} % Pour les double crochets, parenthèses etc..
 %%%%%%%%%%%%%%%%%%%%%%%%
 % \usepackage{layout} % Pour afficher le gabarit de mise en page
 % \usepackage{geometry} % Pour régler les marges
@@ -33,8 +34,9 @@
 \usepackage{tabulary}
 
 \title[TIPE — Transport Optimal]{TIPE \\ Transport Optimal}
+
 \author{ROCHER Kilian — WILLEM Logan}
-\date{2020 - 2021}
+\date{2020 / 2021}
 
 \mode<presentation>
 
@@ -70,7 +72,7 @@
 		\tableofcontents
 	\end{frame}
 
-	\section{Situation du problème}
+	\section{Transport optimal}
 	
 	\subsection{Qu'est ce que l'optimisation des transports?}
 	
@@ -103,7 +105,7 @@
 		\end{center}
 	\end{frame}
 
-	\subsection{Application à la vie réelle}
+	\subsection{Applications réelles}
 
 	\begin{frame}
 		\begin{figure}
@@ -117,6 +119,9 @@
 	
 	\begin{frame}
 		Dans ce type de problèmes, il s'agit de minimiser le coût total (en distance par exemple) de la tournée de tous les véhicules, ayant pour objectif de livrer un nombre défini de clients.
+		\begin{center}
+			\includegraphics[scale=0.25]{Resultats/vrp.png}
+		\end{center}
 	\end{frame}
 
 	\subsection{Variantes}
@@ -130,7 +135,7 @@
 			\item Retours des colis (VRPPD et VRPB)\pause
 			\item \dots 
 		\end{itemize}
-		\ \newline On s'est intéressé à la variante classique afin de s'approprier au mieux le problème.
+		\ \newline On s'est intéressé à la version classique afin de s'approprier au mieux le problème.
 	\end{frame}
 	
 	\section{Première résolution}
@@ -142,7 +147,7 @@
 			\begin{itemize}[label=-]
 				\item Un point $D$ de coordonnées $(0,0)$ : le dépot
 				\pause
-				\item Une famille de points \((i_1,...,i_k) \in {(\lbrack-100,100\rbrack^2)}^k\) pour un certain $k \in \lbrack2,+\infty\lbrack$ représentant les clients
+				\item Une famille de points \((i_1,...,i_n) \in {(\lbrack-100,100\rbrack^2)}^n\) pour un certain $n \in \lbrack2,+\infty\lbrack$ représentant les clients
 				\pause
 				\item Une fonction $d$ qui calcule la distance entre deux points.
 				\pause
@@ -173,31 +178,50 @@
 	\end{frame}
 
    \begin{frame}
-       \begin{itemize}[label=-]
-          \item Étape 1:
-          \item Étape 2:
-	   \end{itemize}
+		\underline{L'algorithme comporte deux étapes majeures}
+		\begin{itemize}[label=—]
+			\item \textbf{Étape 1: Calcul des bénéfices}
+			\ \\ Calcul la liste des bénéfices $s_{ij}$ pour $i,j \in \llbracket 1,n \rrbracket$ et tri de cette liste
+		\end{itemize}
+		\begin{center}
+			\includegraphics[scale=0.25]{Resultats/Etape_1.png}
+		\end{center}
 	\end{frame}
+
+	\begin{frame}
+		\underline{L'algorithme comporte deux étapes majeures}
+		\begin{itemize}[label=—]
+			\item Étape 1: Calcul des bénéfices
+			\ \\ Calcul la liste des bénéfices $s_{ij}$ pour $i,j \in \llbracket 1,n \rrbracket$ et tri de cette liste
+			\item \textbf{Etape 2: Fusion des routes}
+			\ \\ Fusion des routes si celles-ci peuvent l'être, dans l'ordre donné par la liste précédente
+		\end{itemize}
+		\begin{center}
+			\includegraphics[scale=0.3]{Resultats/Etape_2.png}
+		\end{center}
+	\end{frame}
+
+	\subsection{Résultat}
 
 	\begin{frame}
 		\begin{figure}
 			\includegraphics[scale=0.35]{Resultats/CasParfait.png}
-			\caption{Résolution parfaite d'un problème}	
+			\caption{Solution satisfaisante d'un problème}	
 		\end{figure}
 	\end{frame}
 
-	\subsection{Insuffisance de l'algorithme seul}
+	\subsection{Insuffisance de l'algorithme}
 	   
 	\begin{frame}
 		\begin{figure}
 			\includegraphics[scale=0.35]{Resultats/Cas_avant_2-opt.png}
-			\caption{Résultat non satisfaisant: 10 clients}	
+			\caption{Résultat non satisfaisant pour 10 clients}	
 		\end{figure}
 	\end{frame}
 	\begin{frame}
 		\begin{figure}
 			\includegraphics[scale=0.35]{Resultats/Cas_avant_2-opt3_distance_totale_1442,4672107499957.png}
-			\caption{Résultat non satisfaisant: 20 clients}	
+			\caption{Résultat non satisfaisant pour 20 clients}	
 		\end{figure}
 	\end{frame}
 
