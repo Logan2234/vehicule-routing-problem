@@ -40,7 +40,7 @@
 
 \mode<presentation>
 
-\useoutertheme[footline=authortitle]{miniframes}
+\useoutertheme[footline=authortitle,subsection=false]{miniframes}
 \useinnertheme{circles}
 \usecolortheme{whale}
 \usecolortheme{orchid}
@@ -48,10 +48,10 @@
 \definecolor{beamer@blendedblue}{rgb}{0.137,0.466,0.741}
 \definecolor{titleColor}{RGB}{102,153,255}
 \definecolor{textColor}{RGB}{60,60,60}
+\definecolor{frametitlec}{RGB}{17,59,94}
 
 \setbeamercolor{titlelike}{bg=titleColor}
 \setbeamercolor{titlelike}{parent=structure}
-\setbeamercolor{frametitle}{fg=black}
 \setbeamercolor{title}{fg=black}
 \setbeamercolor{item}{fg=black}
 \setbeamercolor{normal text}{fg=textColor}
@@ -62,6 +62,9 @@
 \setbeamercolor{data_low}{bg=gray!10,fg=black!90}
 \setbeamercolor{data_up}{fg=white,bg=gray!90}
 
+\setbeamercolor{frametitle}{fg=white,bg=frametitlec!95}
+
+\setbeamerfont{frametitle}{size=\small}
 
 \begin{document}
 	\begin{frame}[plain]
@@ -77,12 +80,14 @@
 	\subsection{Qu'est ce que l'optimisation des transports?}
 	
 	\begin{frame}
+		\frametitle{Qu'est ce que l'optimisation des transports?}
 		Définition et enjeux de l'optimisation des transports
 	\end{frame}
 	
 	\subsection{Quelques exemples}
 	
 	\begin{frame}
+		\frametitle{Quelques exemples}
 		\underline{Quelques problèmes d'optimisation}
 		\pause
 		\begin{itemize}[label=—]
@@ -95,6 +100,7 @@
 	\end{frame}
 
 	\begin{frame}
+		\frametitle{Quelques exemples}
 		\underline{Quelques problèmes d'optimisation}
 		\begin{itemize}[label=—]
 			\item Le voyageur de commerce
@@ -108,6 +114,7 @@
 	\subsection{Applications réelles}
 
 	\begin{frame}
+		\frametitle{Applications réelles}
 		\begin{figure}
 			\includegraphics[scale=0.3]{Exemple_concret.png}
 		\end{figure}		
@@ -118,6 +125,7 @@
 	\subsection{Contexte}
 	
 	\begin{frame}
+		\frametitle{Contexte}
 		Dans ce type de problèmes, il s'agit de minimiser le coût total (en distance par exemple) de la tournée de tous les véhicules, ayant pour objectif de livrer un nombre défini de clients.
 		\begin{center}
 			\includegraphics[scale=0.25]{Resultats/vrp.png}
@@ -127,6 +135,7 @@
 	\subsection{Variantes}
 	
 	\begin{frame}
+		\frametitle{Variantes}
 		\underline{Différentes variantes du problème de tournée des véhicules}
 		\begin{itemize}[label=—]
 			\item Classique (VRP)\pause
@@ -143,6 +152,7 @@
 	\subsection{L'algorithme de Clarke \& Wright}
 
 	\begin{frame}
+		\frametitle{L'algorithme de Clarke \& Wright}
 		\begin{beamerboxesrounded}[upper=data_up,lower=data_low,shadow=true]{Données}
 			\begin{itemize}[label=-]
 				\item Un point $D$ de coordonnées $(0,0)$ : le dépot
@@ -156,7 +166,8 @@
 		\underline{Remarque} : Dans cette méthode de résolution, le nombre de véhicules n'est pas fixé. C'est l'algorithme qui décide du nombre optimal de véhicules à utiliser. 
 	\end{frame}
 	 
-	\begin{frame}	
+	\begin{frame}
+		\frametitle{L'algorithme de Clarke \& Wright}
 		\begin{definition}[Fonction \textit{gain}]
 			Fonction $s$ : calcule le gain après raccord de deux routes. \\Pour deux points $i$ et $j$, $s$ calcule la différence de distance entre le chemin \\$D-i-D$ + $D-j-D$ qui vaut $2d(D,i) + 2d(j,D)$ au chemin\\$D-i-j-D$ de distance $d(D,i) + d(i,j) + d(j,D)$
 		\begin{align*}
@@ -178,6 +189,7 @@
 	\end{frame}
 
    \begin{frame}
+	\frametitle{L'algorithme de Clarke \& Wright}
 		\underline{L'algorithme comporte deux étapes majeures}
 		\begin{itemize}[label=—]
 			\item \textbf{Étape 1: Calcul des bénéfices}
@@ -189,6 +201,7 @@
 	\end{frame}
 
 	\begin{frame}
+		\frametitle{L'algorithme de Clarke \& Wright}
 		\underline{L'algorithme comporte deux étapes majeures}
 		\begin{itemize}[label=—]
 			\item Étape 1: Calcul des bénéfices
@@ -204,6 +217,7 @@
 	\subsection{Résultat}
 
 	\begin{frame}
+		\frametitle{Résultat}
 		\begin{figure}
 			\includegraphics[scale=0.35]{Resultats/CasParfait.png}
 			\caption{Solution satisfaisante d'un problème}	
@@ -213,12 +227,15 @@
 	\subsection{Insuffisance de l'algorithme}
 	   
 	\begin{frame}
+		\frametitle{Insuffisance de l'algorithme}
 		\begin{figure}
 			\includegraphics[scale=0.35]{Resultats/Cas_avant_2-opt.png}
 			\caption{Résultat non satisfaisant pour 10 clients}	
 		\end{figure}
 	\end{frame}
+
 	\begin{frame}
+		\frametitle{Insuffisance de l'algorithme}
 		\begin{figure}
 			\includegraphics[scale=0.35]{Resultats/Cas_avant_2-opt3_distance_totale_1442,4672107499957.png}
 			\caption{Résultat non satisfaisant pour 20 clients}	
@@ -230,6 +247,7 @@
 	\subsection{Le 2-opt}
 
 	\begin{frame}
+		\frametitle{Le 2-opt}
 		\begin{tabular}{cc}
 				\includegraphics[scale=1.1]{Resultats/principe-2-opt.png}
 				&
@@ -244,6 +262,7 @@
 	\subsection{Résultats avec 2-opt}
 	
 	\begin{frame}
+		\frametitle{Résultats avec 2-opt}
 		\begin{center}
 		\textbf{10 clients}
 		\end{center}
@@ -258,6 +277,7 @@
 	\end{frame}
 	
 	\begin{frame}
+		\frametitle{Résultats avec 2-opt}
 		\begin{center}
 			\textbf{20 clients}
 		\end{center}
@@ -276,6 +296,7 @@
 	\subsection{Complexité des algorithmes}
 
 	\begin{frame} 
+		\frametitle{Complexité des algorithmes}
 		\begin{tabular}{cc}
 			\textbf{Sans 2-opt}&\textbf{Avec 2-opt}
 			\\
