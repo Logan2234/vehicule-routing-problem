@@ -8,8 +8,8 @@ DEPOT = [0, 0]
 
 # CLIENTS - Belle configuration
 
-CLIENTS = [[-80, -25], [37, 62], [-100, -41], [0, -53], [-47, -46],
-           [-89, 58], [85, 27], [-71, 93], [62, -85], [-45, -27]]
+# CLIENTS = [[-80, -25], [37, 62], [-100, -41], [0, -53], [-47, -46],
+     #      [-89, 58], [85, 27], [-71, 93], [62, -85], [-45, -27]]
 
 # CLIENTS - CAS A ETUDIER
 
@@ -21,14 +21,14 @@ CLIENTS = [[-80, -25], [37, 62], [-100, -41], [0, -53], [-47, -46],
 # [76, 70], [52, -35], [75, -70], [39, 90], [37, -86], [40, -1], [75, 1], [7, -50]]
 
 
-def creer_client_alea(n=15):
+def creer_client_alea(n=10):
     CLIENTS = []
     for _ in range(n):
         CLIENTS.append([randint(-100, 100), randint(-100, 100)])
     return CLIENTS
 
 
-# CLIENTS = creer_client_alea()
+CLIENTS = creer_client_alea()
 
 
 def copie(liste):
