@@ -251,28 +251,31 @@
 
 	\begin{frame}
 		\frametitle{Résultat}
-		\begin{figure}
+		\begin{tabular}{c}
 			\includegraphics[scale=0.35]{Resultats/CasParfait.png}
-			\caption{Solution satisfaisante d'un problème}	
-		\end{figure}
+			\\
+			Solution satisfaisante d'un problème
+		\end{tabular}
 	\end{frame}
 
 	\subsection{Insuffisance de l'algorithme}
 	   
 	\begin{frame}
 		\frametitle{Insuffisance de l'algorithme}
-		\begin{figure}
+		\begin{tabular}{c}
 			\includegraphics[scale=0.35]{Resultats/Cas_avant_2-opt.png}
-			\caption{Résultat non satisfaisant pour 10 clients}	
-		\end{figure}
+			\\
+			Résultat non satisfaisant pour 10 clients
+		\end{tabular}
 	\end{frame}
 
 	\begin{frame}
 		\frametitle{Insuffisance de l'algorithme}
-		\begin{figure}
-			\includegraphics[scale=0.35]{Resultats/Cas_avant_2-opt3_distance_totale_1442,4672107499957.png}
-			\caption{Résultat non satisfaisant pour 20 clients}	
-		\end{figure}
+		\begin{tabular}{c}
+			\includegraphics[scale=0.35]{Resultats/Cas_avant_2opt_n2_1224.png}
+			\\
+			Résultat non satisfaisant pour 20 clients	
+		\end{tabular}
 	\end{frame}
 
 	\section{Amélioration}
@@ -290,6 +293,21 @@
 				&
 				\ 
 			\end{tabular}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Le 2-opt}
+		\begin{exampleblock}{\textbf{Exemple}}
+			Dans le graphe ci-dessous, on a:
+			\[d(a,c) + d(b,d)\, >\, d(a,b) + d(c,d)\] Un changement va donc s'opérer \\
+			\begin{center}
+				\begin{tabular}{cc}
+					\includegraphics[scale=2]{Resultats/acbd.png}
+					&
+					\quad \quad \quad \includegraphics[scale=2]{Resultats/abcd.png}
+				\end{tabular}
+			\end{center}
+		\end{exampleblock}
 	\end{frame}
 
 	\subsection{Résultats avec 2-opt}
@@ -316,11 +334,11 @@
 		\end{center}
 		\ \newline
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.25]{Resultats/Cas_avant_2-opt3_distance_totale_1442,4672107499957.png}
+			\includegraphics[scale=0.25]{Resultats/Cas_avant_2opt_n2_1224.png}
 			&
-			\includegraphics[scale=0.25]{Resultats/Cas_apres_2-opt3_distance_totale_1402,9109633508515.png}
+			\includegraphics[scale=0.25]{Resultats/Cas_apres_2opt_n2_1193.png}
 			\\
-			Distance: 1442km&Distance: 1403km
+			Distance: 1224km&Distance: 1193km
 			\\                                                     
 			Avant&Après
 		\end{tabular}
@@ -343,10 +361,10 @@
 		\end{tabular}
 	\end{frame}
 
-	\subsection{Limite de l'algorithme ?}
+	\subsection{Limites de l'algorithme ?}
 
 	\begin{frame}
-		\frametitle{Limite de l'algorithme ?}
+		\frametitle{Limites de l'algorithme ?}
 		Mauvaise résolution pour les points suivants: \ \\
 		\begin{center}
 			$i_1 = (20, 0)$, $i_2 = (-16, -12)$, $i_3 = (16, -12)$
@@ -359,7 +377,21 @@
 			\\
 			Distance: 85km&Distance: 91km
 			\\
-			Avant 2-opt&Après 2-opt
+			Avant&Après
+		\end{tabular}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Limites de l'algorithme ?}
+		Résolution moins satisfisante lorsqu'il s'agit de quarts de plan
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.25]{Resultats/Cas_avant_2opt_quartdeplan_742.png}
+			&
+			\includegraphics[scale=0.25]{Resultats/Cas_apres_2opt_quartdeplan_695.png}
+			\\
+			Distance: 742km&Distance: 695km
+			\\
+			Avant&Après
 		\end{tabular}
 	\end{frame}
 

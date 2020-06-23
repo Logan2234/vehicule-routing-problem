@@ -12,7 +12,7 @@ MOY = []
 
 def main(n):
 
-    if n == 51:
+    if n == 251:
         print(MOY)
         scatter([x for x in range(len(MOY))], MOY)
         x = linspace(0, n-1, 100)
@@ -31,7 +31,7 @@ def main(n):
 
     T = []
 
-    for _ in range(3):
+    for _ in range(1):
 
         def copie(liste):
             liste2 = deepcopy(liste)
@@ -145,7 +145,7 @@ def main(n):
         temps = time() - t
         T.append(temps)
 
-    if n <= 50:
+    if n <= 250:
         x = 0
         for i in T:
             x += i
@@ -154,7 +154,7 @@ def main(n):
         main(n+1)
 
 
-main(1)
+main(250)
 
 
 # DEPOT = [0, 0]

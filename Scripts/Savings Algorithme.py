@@ -21,7 +21,7 @@ DEPOT = [0, 0]
 # [76, 70], [52, -35], [75, -70], [39, 90], [37, -86], [40, -1], [75, 1], [7, -50]]
 
 
-def creer_client_alea(n=10):
+def creer_client_alea(n=20):
     CLIENTS = []
     for _ in range(n):
         CLIENTS.append([randint(-100, 100), randint(-100, 100)])
