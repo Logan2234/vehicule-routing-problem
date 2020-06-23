@@ -12,14 +12,11 @@ MOY = []
 
 def main(n):
 
-    if n == 251:
+    if n == 51:
         print(MOY)
         scatter([x for x in range(len(MOY))], MOY)
         x = linspace(0, n-1, 100)
         plot(x, [y**4/6000000 for y in x])
-        plot(x, [y**4/8000000 for y in x])
-        plot(x, [y**4/18000000 for y in x])
-        plot(x, [y**4/13500000 for y in x])
 
     def creer_client_alea(n):
         CLIENTS = []
@@ -145,7 +142,7 @@ def main(n):
         temps = time() - t
         T.append(temps)
 
-    if n <= 250:
+    if n <= 50:
         x = 0
         for i in T:
             x += i
@@ -154,7 +151,7 @@ def main(n):
         main(n+1)
 
 
-main(250)
+main(50)
 
 
 # DEPOT = [0, 0]
