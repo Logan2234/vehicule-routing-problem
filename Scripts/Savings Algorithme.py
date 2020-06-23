@@ -13,7 +13,7 @@ DEPOT = [0, 0]
 
 # CLIENTS - CAS A ETUDIER
 
-CLIENTS = [[20, 0], [-16, -12], [16, -12]]
+# CLIENTS = [[20, 0], [-16, -12], [16, -12]]
 
 # CLIENTS demi-plan
 
@@ -28,7 +28,7 @@ def creer_client_alea(n=10):
     return CLIENTS
 
 
-# CLIENTS = creer_client_alea()
+CLIENTS = creer_client_alea()
 
 
 def copie(liste):
@@ -56,7 +56,7 @@ def savings(DEPOT=DEPOT, CLIENTS=CLIENTS):
         temp = []
         temp2 = []
     return (list_savings, client_savings)
-
+print(savings()[0])
 
 # Creer les routes D-i-D
 def create_routes(DEPOT=DEPOT, CLIENTS=CLIENTS):

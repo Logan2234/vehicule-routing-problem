@@ -183,7 +183,7 @@
 		\frametitle{L'algorithme de Clarke \& Wright}
 		\begin{beamerboxesrounded}[upper=data_up,lower=data_low,shadow=true]{Données}
 			\begin{itemize}[label=-]
-				\item Un point $D$ de coordonnées $(0,0)$ : le dépot
+				\item Un point $D$ de coordonnées $(0,0)$ : le dépôt
 				\pause
 				\item Une famille de points \((i_1,...,i_n) \in {(\lbrack-100,100\rbrack^2)}^n\) pour un certain $n \in \lbrack2,+\infty\lbrack$ représentant les clients
 				\pause
@@ -221,7 +221,8 @@
 		\underline{L'algorithme comporte deux étapes majeures}
 		\begin{itemize}[label=—]
 			\item \textbf{Étape 1: Calcul des bénéfices}
-			\ \\ Calcul la liste des bénéfices $s_{ij}$ pour $i,j \in \llbracket 1,n \rrbracket$ et tri de cette liste
+			\pause
+			\ \\ Calcul la liste des bénéfices $s_{ij}$ pour $i,j \in \llbracket 1,n \rrbracket$ distincts
 		\end{itemize}
 		\begin{center}
 			\includegraphics[scale=0.25]{Resultats/Etape_1.png}
@@ -233,8 +234,9 @@
 		\underline{L'algorithme comporte deux étapes majeures}
 		\begin{itemize}[label=—]
 			\item Étape 1: Calcul des bénéfices
-			\ \\ Calcul la liste des bénéfices $s_{ij}$ pour $i,j \in \llbracket 1,n \rrbracket$ et tri de cette liste
+			\ \\ Calcul la liste des bénéfices $s_{ij}$ pour $i,j \in \llbracket 1,n \rrbracket$ distincts
 			\item \textbf{Etape 2: Fusion des routes}
+			\pause
 			\ \\ Fusion des routes si celles-ci peuvent l'être, dans l'ordre donné par la liste précédente
 		\end{itemize}
 		\begin{center}
@@ -283,8 +285,8 @@
 				\\
 				\ \\Principe du 2-opt\\Suppression des liaisons sécantes
 				&
-				Vue générale de l'algorithme
-		\end{tabular}
+				\ 
+			\end{tabular}
 	\end{frame}
 
 	\subsection{Résultats avec 2-opt}
