@@ -13,7 +13,7 @@ DEPOT = [0, 0]
 
 # CLIENTS - CAS A ETUDIER
 
-# CLIENTS = [[20, 0], [-16, -12], [16, -12]]
+CLIENTS = [[20, 0], [-16, -12], [16, -12]]
 
 # CLIENTS demi-plan
 
@@ -28,7 +28,7 @@ def creer_client_alea(n=10):
     return CLIENTS
 
 
-CLIENTS = creer_client_alea()
+# CLIENTS = creer_client_alea()
 
 
 def copie(liste):
@@ -191,3 +191,4 @@ def distance_comparaison(DEPOT=DEPOT, CLIENTS=CLIENTS, ROUTE_AVANT=ROUTES, ROUTE
 
 dessin(ROUTES)
 dessin()
+print(distance_comparaison())

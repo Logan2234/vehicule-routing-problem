@@ -66,6 +66,13 @@
 
 \setbeamerfont{frametitle}{size=\small}
 
+\setbeamertemplate{navigation symbols}{%
+\insertslidenavigationsymbol % Icône slide
+\insertframenavigationsymbol % Icône frame
+\insertsubsectionnavigationsymbol % Icône sous section
+\insertsectionnavigationsymbol % Icône section
+}
+
 \begin{document}
 	\begin{frame}[plain]
 		\maketitle
@@ -81,7 +88,7 @@
 	
 	\begin{frame}
 		\frametitle{Qu'est ce que l'optimisation des transports?}
-		Définition et enjeux de l'optimisation des transports
+		Définition de l'optimisation des transports
 	\end{frame}
 	
 	\subsection{Quelques exemples}
@@ -147,6 +154,27 @@
 		\ \newline On s'est intéressé à la version classique afin de s'approprier au mieux le problème.
 	\end{frame}
 	
+	\subsection{Pourquoi utiliser une résolution approchée ?}
+
+	\begin{frame}
+		\frametitle{Pourquoi utiliser une résolution approchée ?}
+		Deux choix pour le \underline{premier} camion pour chaque client: "OUI" ou "NON"
+		\pause
+		\begin{center}
+			$2^n$ possibilités
+		\end{center}
+		\pause
+		Le sens importe peu:
+		\begin{center}
+			$2^{n-1}$ possibilités
+		\end{center}
+		\pause
+		\ \\Pour \underline{tous} les trajets, il existe \underline{au moins} $2^{n-1}$ possibilités: \pause 
+		\begin{center}
+			complexité \textbf{exponentiel}
+		\end{center}
+	\end{frame}
+
 	\section{Première résolution}
 
 	\subsection{L'algorithme de Clarke \& Wright}
@@ -307,6 +335,26 @@
 			\includegraphics[scale=0.3]{Resultats/Complexite_algo_Clark_and_Wright_x4_6000000.png}
 			\\
 			\small{$f(x) = x^3/14000$}&\small{$f(x) = x^4/6000000$}
+		\end{tabular}
+	\end{frame}
+
+	\subsection{Limite de l'algorithme ?}
+
+	\begin{frame}
+		\frametitle{Limite de l'algotithme ?}
+		Mauvaise résolution pour les points suivants: \ \\
+		\begin{center}
+			$i_1 = (20, 0)$, $i_2 = (-16, -12)$, $i_3 = (16, -12)$
+		\end{center}
+		\pause
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.25]{Resultats/Cas_defavorable_avant_2opt.png}
+			&
+			\includegraphics[scale=0.25]{Resultats/Cas_defavorable_2opt.png}
+			\\
+			Distance: 85km&Distance: 91km
+			\\
+			Avant 2-opt&Après 2-opt
 		\end{tabular}
 	\end{frame}
 
